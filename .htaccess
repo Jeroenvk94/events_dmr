@@ -1,0 +1,7 @@
+## Rewrite PHP extensions
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+## Redirect to homepage
+DirectoryIndex index.php
