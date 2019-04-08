@@ -16,6 +16,7 @@ include('../includes/config.php');
   <!-- Custom fonts for this template-->
   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Questrial:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link rel="shortcut icon" href="https://www.datamatch.nl/wp-content/uploads/2018/01/favicon.png">	
 
   <!-- Custom styles for this template-->
   <link href="/css/sb-admin-2.min.css" rel="stylesheet">
@@ -36,7 +37,8 @@ include('../includes/config.php');
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block">
-                  <img src="https://www.datamatch.nl/wp-content/uploads/2017/10/Logo.png" style="display:block;position:center;margin-top:70px;margin-left:50px">
+				  				  <img src="http://evenementen.datamatch.nl/img/logo%2025px%20kleur.png" style="display:block;position:center;margin-top:70px;margin-left:50px;width:150px;margin-bottom:5px">
+                  <img src="https://www.datamatch.nl/wp-content/uploads/2017/10/Logo.png" style="display:block;position:center;margin-top:70px;margin-left:50px;width:250px">
               </div>
               <div class="col-lg-6">
                 <div class="p-5">

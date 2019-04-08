@@ -29,7 +29,7 @@ if($sql)
     $data = array(
         "userName" => $attendeeName,
         "userEmail" => $attendeeMail,
-        "sendUserPass" => false
+        "sendUserPass" => "false";
     );
 
     $json_data = json_encode($data);

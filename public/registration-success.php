@@ -16,6 +16,7 @@
 
   <!-- Custom styles for this template-->
   <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="https://www.datamatch.nl/wp-content/uploads/2018/01/favicon.png">
 
 </head>
 
@@ -33,7 +34,8 @@
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block">
-                  <img src="https://www.datamatch.nl/wp-content/uploads/2017/10/Logo.png" style="display:block;position:center;margin-top:70px;margin-left:50px">
+				  				  <img src="http://evenementen.datamatch.nl/img/logo%2025px%20kleur.png" style="display:block;position:center;margin-top:70px;margin-left:50px;width:150px;margin-bottom:5px">
+                  <img src="https://www.datamatch.nl/wp-content/uploads/2017/10/Logo.png" style="display:block;position:center;margin-top:70px;margin-left:50px;width:250px">
               </div>
               <div class="col-lg-6">
                 <div class="p-5">

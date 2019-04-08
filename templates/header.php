@@ -58,6 +58,7 @@ while($row4 = mysqli_fetch_assoc($sql4))
   <!-- Custom fonts for this template-->
   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Questrial:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link rel="shortcut icon" href="https://www.datamatch.nl/wp-content/uploads/2018/01/favicon.png">
 
   <!-- Custom styles for this template-->
   <link href="/css/sb-admin-2.min.css" rel="stylesheet">
@@ -170,20 +171,6 @@ while($row4 = mysqli_fetch_assoc($sql4))
   Loyalty
 </div>
 
-<!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Dashboard</span>
-  </a>
-  <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Mailchimp:</h6>
-      <a class="collapse-item" href="/dashboard-loyalty">Loyalty Dashboard</a>
-    </div>
-  </div>
-</li>
-
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
     <i class="fas fa-fw fa-cog"></i>
@@ -197,20 +184,6 @@ while($row4 = mysqli_fetch_assoc($sql4))
   </div>
 </li>
 
-<!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
-    <i class="fas fa-fw fa-wrench"></i>
-    <span>Actions</span>
-  </a>
-  <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Actions for Loyalty:</h6>
-      <a class="collapse-item" href="/loyalty/loyalty-members">Members</a>
-      <a class="collapse-item" href="/loyalty/loyalty-new-member">New Member</a>
-    </div>
-  </div>
-</li>
       <?php } ?>
 <?php if($user_admin == '1') {?>
       <!-- Divider -->

@@ -36,6 +36,7 @@ while($row = mysqli_fetch_assoc($sql))
 
   <!-- Custom styles for this template-->
   <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="https://www.datamatch.nl/wp-content/uploads/2018/01/favicon.png">
 
 </head>
 
@@ -53,19 +54,16 @@ while($row = mysqli_fetch_assoc($sql))
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block">
-                  <img src="https://www.datamatch.nl/wp-content/uploads/2017/10/Logo.png" style="display:block;position:center;margin-top:70px;margin-left:50px">
+				  				  <img src="http://evenementen.datamatch.nl/img/logo%2025px%20kleur.png" style="display:block;position:center;margin-top:70px;margin-left:50px;width:150px;margin-bottom:5px">
+                  <img src="https://www.datamatch.nl/wp-content/uploads/2017/10/Logo.png" style="display:block;position:center;margin-top:70px;margin-left:50px;width:250px">
               </div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Jouw inschrijving!</h1>
                     <p>Leuk dat je één van onze events wilt komen bezoeken.</p>
-                    <p>Het enige wat je nog even moet invullen, is je naam, e-mailadres en bedrijfsinformatie, zodat we je een ticket kunnen sturen.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h4 class="text-center h4 text-gray-900 mb-4"><?php echo $eventName; ?></h4>
+                    <p>Het enige wat je nog even moet invullen, is je naam, e-mailadres en bedrijfsnaam, zodat we je per e-mail een ticket kunnen sturen.</p>
+					              <h4 class="text-center h4 text-gray-900 mb-4"><?php echo $eventName; ?></h4>
             <p class="text-center">
               <?php echo $eventDateFormat; ?> <?php echo $eventTimeFormat; ?>
               <br/>
@@ -73,6 +71,10 @@ while($row = mysqli_fetch_assoc($sql))
               <br/>
               <?php echo $eventZipCode; ?>  <?php echo $eventCity; ?>
             </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

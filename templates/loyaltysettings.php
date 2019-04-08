@@ -6,6 +6,7 @@ while($row = mysqli_fetch_assoc($sql))
     $settings_user = $row['mail'];
     $settings_pass = $row['password'];
     $settings_akey = $row['token'];
+	$settings_send = $row['sendpass'];
 }
 ?>
 
@@ -42,6 +43,9 @@ while($row = mysqli_fetch_assoc($sql))
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" name="api" placeholder="Enter API Key" value="<?php echo $settings_akey; ?>">
+                                </div>
+								<div class="form-group">
+                                    <input type="text" class="form-control form-control-user" name="sendpass" placeholder="Enter API Key" value="<?php echo $settings_send; ?>">
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary btn-user btn-block" placeholder="Enter API Key" value="Change credentials">
