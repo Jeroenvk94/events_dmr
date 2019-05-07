@@ -120,7 +120,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    $query5 = "SELECT * FROM `participants` ORDER BY `id` DESC LIMIT 25";
+                                    $query5 = "SELECT * FROM `participants`  WHERE `partner` = '$user_partner'  ORDER BY `id` DESC LIMIT 25 ";
                                     $sql5 = mysqli_query($con,$query5);
                                     while($row4 = mysqli_fetch_assoc($sql5))
                                     {

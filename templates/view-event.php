@@ -55,6 +55,8 @@ while($row = mysqli_fetch_assoc($sql))
             <div class="col-md-12">
                 <div class="p-5">
                     <div class="text-center">
+						<h4>Registration link</h4>
+						<p><a href="https://evenementen.datamatch.nl/public/register?id=<?php echo $eventId; ?>">https://evenementen.datamatch.nl/public/register?id=<?php echo $eventId; ?>&partner=<?php echo $user_partner; ?></a></p>
                         <h1 class="h4 text-gray-900 mb-4">Event Location</h1>
                         <table class="table">
                         <tr>
@@ -73,6 +75,10 @@ while($row = mysqli_fetch_assoc($sql))
                                 <td>ZIP Code</td>
                                 <td><?php echo $eventZipCode; ?></td>
                             </tr>
+                            <tr>
+                                <td>Event Date & Time</td>
+                                <td><?php echo $datetime; ?></td>
+                            </tr>
                         </table>
                     </div>
                 </div>
@@ -89,6 +95,7 @@ while($row = mysqli_fetch_assoc($sql))
                     <div>
                         <h1 class="h4 text-gray-900 mb-4">Event Statistics</h1>
                         <h4 class="h5 text-gray-900 mb-4">Attendance</h4>
+                        <p>Total attendance : <?php echo $eventAttendance; ?></p>
                         <div class="progress mb-4">
                             <div class="progress-bar" role="progressbar" style="width:<?php echo "$attendancePercentage%"; ?>" aria-valuenow="<?php echo $attendancePercentage;?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -108,7 +115,7 @@ while($row = mysqli_fetch_assoc($sql))
                             </thead>
                             <tbody>
                                 <?php 
-                                    $query3 = "SELECT * FROM `participants` WHERE `event_id` = '$eventId' ORDER BY `id` DESC LIMIT 5";
+                                    $query3 = "SELECT * FROM `participants` WHERE `event_id` = '$eventId' AND `partner` = '$user_partner' ORDER BY `id` DESC LIMIT 5";
                                     $sql3 = mysqli_query($con,$query3);
                                     while($row3 = mysqli_fetch_assoc($sql3))
                                     {
@@ -143,7 +150,7 @@ while($row = mysqli_fetch_assoc($sql))
 <footer class="sticky-footer bg-white">
 <div class="container my-auto">
 <div class="copyright text-center my-auto">
-    <span>Copyright &copy; Your Website 2019</span>
+<span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
 </div>
 </div>
 </footer>

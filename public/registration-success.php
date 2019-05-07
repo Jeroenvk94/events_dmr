@@ -40,8 +40,8 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Je bent aangemeld!</h1>
-                    <p>We vinden het super dat je ons komt bezoeken. Binnenkort ontvang je van ons een ticket waarmee je je bij aankomst aan komt melden.</p>
+                    <h1 class="h4 text-gray-900 mb-4">Bedankt voor jouw inschrijving!</h1>
+                    <p>We vinden het super dat je ons komt bezoeken. Uiterlijk één dag voor het event ontvang je van ons een e-ticket waarmee je je bij aankomst aan kunt melden. Tot dan!</p>
                     <p>Je kunt nu dit tabblad sluiten.</p>
                   </div>
                 </div>

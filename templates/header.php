@@ -1,16 +1,7 @@
 <?php
 session_start();
-if($_SESSION['login'] != 'true')
-{
-  $path1 = $_SERVER['DOCUMENT_ROOT'];
-  $path1 .= "/index";
-  header('location: '.$path1.'');
-}
-
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/includes/config.php";
-include_once($path);
-
+$docroot = $_SERVER['DOCUMENT_ROOT'];
+include("$docroot/includes/config.php");
 $uid = $_SESSION['id'];
 
 $query = "SELECT * FROM `admins` WHERE `id` = '$uid'";
@@ -30,6 +21,7 @@ while($row = mysqli_fetch_assoc($sql))
   $user_loyalty = $row['loyalty'];
   $user_mailchimp = $row['mailchimp'];
   $user_events = $row['events'];
+  $user_partner = $row['partner'];
 }
 
 $query4 = "SELECT * FROM `settings`";
@@ -82,32 +74,9 @@ while($row4 = mysqli_fetch_assoc($sql4))
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard-mailchimp">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard-events">
         <div class="sidebar-brand-text mx-3">Events<sup>v1</sup></div>
       </a>
-      <?php if($user_mailchimp == '1') {?>
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Copernica
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Settings</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Mailchimp:</h6>
-            <a class="collapse-item" href="/mail/mail-settings">Account information</a>
-          </div>
-        </div>
-      </li>
-
-      <?php } ?>
 
       <?php if($user_events == '1') {?>
       <!-- Divider -->
@@ -185,6 +154,32 @@ while($row4 = mysqli_fetch_assoc($sql4))
 </li>
 
       <?php } ?>
+
+      <?php if($user_mailchimp == '1') {?>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        E-mails
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Settings</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Copernica:</h6>
+            <a class="collapse-item" href="/mail/mail-settings">Account information</a>
+          </div>
+        </div>
+      </li>
+
+      <?php } ?>
+
+
 <?php if($user_admin == '1') {?>
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -204,6 +199,7 @@ while($row4 = mysqli_fetch_assoc($sql4))
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Manager:</h6>
             <a class="collapse-item" href="/manager/users">User Information</a>
+            <a class="collapse-item" href="/manager/partners">Partners</a>
           </div>
         </div>
       </li>

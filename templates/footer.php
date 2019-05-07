@@ -50,16 +50,21 @@
               <input type="text" class="form-control form-control-user" name="company" placeholder="Company name">
           </div>
           <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="address" placeholder="Address">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="city" placeholder="City">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="zip" placeholder="ZIP code">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="country" placeholder="Country">
+            <select name="partner">
+              <?php
+                $query = "SELECT * FROM `partners`";
+                $sql = $con->query($query);
+                while($row = $sql->fetch_assoc())
+                {
+                  $partner_name = $row['name'];
+
+                  echo '
+                  <option value="'.$partner_name.'">'.$partner_name.'</option>
+                  ';
+
+                }
+              ?>
+            </select>
           </div>
               <input type="checkbox" name="admin" id="admin" value="1">
               <label for="admin">Is admin?</label><br/>
@@ -69,6 +74,31 @@
               <label for="mailchimp">Access to emailings</label><br/>
               <input type="checkbox" name="events" id="events" value="1">
               <label for="events">Access to events</label>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-primary" value="Create">
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Partner Modal -->
+    <div class="modal fade" id="partnerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New dashboard user</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">x</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="/controller/partnercontroller">
+          <div class="form-group">
+            <input type="text" class="form-control form-control-user" name="name" placeholder="Partner Name">
+          </div>
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>

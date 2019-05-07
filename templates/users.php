@@ -16,8 +16,7 @@
                                 <tr>
                                     <th>Email Address</th>
                                     <th>First name</th>
-                                    <th>Last name</th>
-                                    <th>Company</th>
+                                    <th>Partner</th>
                                     <th>Manager</th>
                                     <th>Actions</th>
                                 </tr>
@@ -30,8 +29,7 @@
                                     {
                                         $mail = $row['mail'];
                                         $firstname = $row['firstname'];
-                                        $lastname = $row['lastname'];
-                                        $company = $row['company'];
+                                        $partner = $row['partner'];
                                         $admin = $row['admin'];
                                         $id = $row['id'];
 
@@ -48,8 +46,7 @@
                                         <tr>
                                             <td>'.$mail.'</td>
                                             <td>'.$firstname.'</td>
-                                            <td>'.$lastname.'</td>
-                                            <td>'.$company.'</td>
+                                            <td>'.$partner.'</td>
                                             <td>'.$admin.'</td>
                                             <td><a href="/controller/delete-user?id='.$id.'"><button class="btn btn-danger btn-user btn-block">Delete</button></a>
                                         ';
@@ -72,7 +69,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
             </div>
         </div>
       </footer>

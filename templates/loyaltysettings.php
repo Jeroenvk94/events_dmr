@@ -6,7 +6,6 @@ while($row = mysqli_fetch_assoc($sql))
     $settings_user = $row['mail'];
     $settings_pass = $row['password'];
     $settings_akey = $row['token'];
-	$settings_send = $row['sendpass'];
 }
 ?>
 
@@ -44,9 +43,6 @@ while($row = mysqli_fetch_assoc($sql))
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" name="api" placeholder="Enter API Key" value="<?php echo $settings_akey; ?>">
                                 </div>
-								<div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="sendpass" placeholder="Enter API Key" value="<?php echo $settings_send; ?>">
-                                </div>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary btn-user btn-block" placeholder="Enter API Key" value="Change credentials">
                                 </div>
@@ -67,7 +63,7 @@ while($row = mysqli_fetch_assoc($sql))
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
             </div>
         </div>
       </footer>

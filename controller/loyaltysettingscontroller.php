@@ -6,9 +6,8 @@ $apikey = $_POST['api'];
 $username = $_POST['user'];
 $pass = $_POST['pass'];
 $dc = $_POST['dc'];
-$sendpass = $_POST['sendpass'];
 
-$query = "UPDATE `loyalty_settings` SET `token` = '$apikey', `mail` = '$username', `password` = '$pass', `sendpass` = '$sendpass'";
+$query = "UPDATE `loyalty_settings` SET `token` = '$apikey', `mail` = '$username', `password` = '$pass'";
 $sql = mysqli_query($con,$query);
 if($sql)
 {

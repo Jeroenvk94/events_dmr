@@ -1,6 +1,7 @@
 <?php
 include('../includes/config.php');
 $eventId = $_GET['id'];
+$partner = $_GET['partner'];
 
 $query = "SELECT * FROM `events` WHERE `id` = '$eventId'";
 $sql = mysqli_query($con,$query);
@@ -62,7 +63,7 @@ while($row = mysqli_fetch_assoc($sql))
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Jouw inschrijving!</h1>
                     <p>Leuk dat je één van onze events wilt komen bezoeken.</p>
-                    <p>Het enige wat je nog even moet invullen, is je naam, e-mailadres en bedrijfsnaam, zodat we je per e-mail een ticket kunnen sturen.</p>
+                    <p>Vergeet niet hieronder de gevraagde gegevens in te vullen, zodat we je per e-mail een ticket kunnen toezenden. Deze ontvang je uiterlijk 1 dag voor het evenement.</p>
 					              <h4 class="text-center h4 text-gray-900 mb-4"><?php echo $eventName; ?></h4>
             <p class="text-center">
               <?php echo $eventDateFormat; ?> <?php echo $eventTimeFormat; ?>
@@ -88,6 +89,7 @@ while($row = mysqli_fetch_assoc($sql))
                     <h1 class="h4 text-gray-900 mb-4">Jouw gegevens</h1>
                     <form method="post" action="/controller/attendeecontroller">
                     <input type="hidden" name="event" value="<?php echo $eventId; ?>">
+                    <input type="hidden" name="partner" value="<?php echo $partner; ?>">
                       <div class="form-group">
                         <input type="email" class="form-control form-control-user" name="mail" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Vul een geldig e-mailadres in" required>
                       </div>

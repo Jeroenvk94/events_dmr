@@ -6,10 +6,7 @@ $mail = $_POST['mail'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $company = $_POST['company'];
-$address = $_POST['address'];
-$city = $_POST['city'];
-$zip = $_POST['zip'];
-$country = $_POST['country'];
+$partner = $_POST['partner'];
 $admin = $_POST['admin'];
 $pass = $_POST['pass'];
 $loyalty = $_POST['loyalty'];
@@ -27,7 +24,7 @@ if($rows > 0)
 }
 else 
 {
-    $prepare = "INSERT INTO `admins` (`mail`,`pass`,`firstname`,`lastname`,`company`,`address`,`city`,`zip`,`country`,`admin`,`loyalty`,`mailchimp`,`events`) VALUES ('$mail','$hash','$firstname','$lastname','$company','$address','$city','$zip','$country','$admin','$loyalty','$mailchimp','$events')";
+    $prepare = "INSERT INTO `admins` (`mail`,`pass`,`firstname`,`lastname`,`company`,`admin`,`loyalty`,`mailchimp`,`events`,`partner`) VALUES ('$mail','$hash','$firstname','$lastname','$company','$admin','$loyalty','$mailchimp','$events','$partner')";
     $execute = mysqli_query($con,$prepare);
     if($execute)
     {

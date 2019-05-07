@@ -17,6 +17,15 @@ $attendeeName = $_POST['name'];
 $attendeeCompany = $_POST['company'];
 $attendeeMail = $_POST['mail'];
 $attendeeOptIn = $_POST['optin'];
+$attendeePartner = $_POST['partner'];
+
+$query99 = "SELECT * FROM `settings` WHERE `partner` = '$attendeePartner'";
+$sql99 = $con->query($query99);
+while($row2 = mysqli_fetch_assoc($sql99))
+{
+    $copernicaKey = $row2['key'];
+    $copernicaDatabase = $row2['dbase'];
+}
 
 $query = "INSERT INTO `participants` (`name`,`mail`,`company`,`event_id`,`optin`) VALUES ('$attendeeName','$attendeeMail','$attendeeCompany','$eventId','$attendeeOptIn')"; 
 $sql = mysqli_query($con,$query);
@@ -29,7 +38,7 @@ if($sql)
     $data = array(
         "userName" => $attendeeName,
         "userEmail" => $attendeeMail,
-        "sendUserPass" => "false";
+        "sendUserPass" => false
     );
 
     $json_data = json_encode($data);
@@ -49,11 +58,37 @@ if($sql)
     $clean = json_decode($result, true);
     $walnutPass = $clean['passIdentifier'];
     $url = "https://www.walnutapp.com/get/$walnutPass";
-    echo $url;
 
     $query4 = "UPDATE `participants` SET `walnut` = '$url' WHERE `event_id` = '$eventId' AND `mail` = '$attendeeMail'";
     $sql4 = mysqli_query($con,$query4);
-    if($sql4)
+    if($sql4 && $partner == 'DataMatch')
+    {
+        require_once('../includes/CopernicaClient.php');
+
+        $api = new CopernicaRestApi("$copernicaKey");
+
+        $fields = array(
+            'Voornaam' => $attendeeName,
+            'Walnut_Pass' => $url,
+            'Event_id' => $eventId,
+            'Send_confirmation' => '1',
+            "Email" => $attendeeMail
+        );
+
+        $data2 = array(
+            'fields' => $fields
+        );
+
+        $request = $api->post("database/$copernicaDatabase/profiles", $data2);
+
+        $query5 = "UPDATE `participants` SET `confirmation` = '1' WHERE `event_id` = '$eventId' AND `mail` = '$attendeeMail'";
+        $sql5 = $con->query($query5);
+        if($sql5)
+        {
+            header('location: ../public/registration-success');
+        }
+    }
+    elseif($sql4 && $partner != 'DataMatch')
     {
         header('location: ../public/registration-success');
     }

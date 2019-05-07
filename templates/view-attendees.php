@@ -9,6 +9,7 @@ $eventId = $_GET['id'];
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Attendee List</h1>
                 <a href="" target="_blank"><button class="btn btn-success btn-user btn-block" onclick="ToExcelReport();" id="btnExport">Export event list</button></a>
+                <a href="" target="_blank"><button class="btn btn-warning btn-user btn-block" onclick="ToExcelReport();" id="btnExport">Send Tickets</button></a>
             </div>
             
 
@@ -27,7 +28,7 @@ $eventId = $_GET['id'];
                             </thead>
                             <tbody>
                                 <?php
-                                    $query = "SELECT * FROM `participants` WHERE `event_id` = '$eventId'";
+                                    $query = "SELECT * FROM `participants` WHERE `event_id` = '$eventId' AND `partner` = '$user_partner'";
                                     $sql = mysqli_query($con,$query);
                                     while($row = mysqli_fetch_assoc($sql))
                                     {
@@ -64,7 +65,7 @@ $eventId = $_GET['id'];
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
             </div>
         </div>
       </footer>
