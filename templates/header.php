@@ -22,6 +22,7 @@ while($row = mysqli_fetch_assoc($sql))
   $user_mailchimp = $row['mailchimp'];
   $user_events = $row['events'];
   $user_partner = $row['partner'];
+  $user_lang = $row['lang'];
 }
 
 $query4 = "SELECT * FROM `settings`";
@@ -31,6 +32,8 @@ while($row4 = mysqli_fetch_assoc($sql4))
   $dc = $row4['dc'];
   $token = $row4['key'];
 }
+
+include("$docroot/includes/$user_lang.php");
 
 ?>
 
@@ -45,7 +48,7 @@ while($row4 = mysqli_fetch_assoc($sql4))
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Event Dashboard</title>
+  <title><?php echo $stringTitle; ?></title>
 
   <!-- Custom fonts for this template-->
   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -84,20 +87,20 @@ while($row4 = mysqli_fetch_assoc($sql4))
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Events
+        <?php echo $stringEventsSidebar; ?>
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
+          <span><?php echo $stringEventDashboard; ?></span>
         </a>
         <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Event dashboard:</h6>
-            <a class="collapse-item" href="/dashboard-events">Overview</a>
-            <a class="collapse-item" href="/events/event-list">Event list</a>
+            <h6 class="collapse-header"><?php echo $stringEventDashboard; ?></h6>
+            <a class="collapse-item" href="/dashboard-events"><?php echo $stringEventOverview; ?></a>
+            <a class="collapse-item" href="/events/event-list"><?php echo $stringEventList; ?></a>
           </div>
         </div>
       </li>
@@ -106,12 +109,13 @@ while($row4 = mysqli_fetch_assoc($sql4))
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
           <i class="fas fa-fw fa-wrench"></i>
-          <span>Actions</span>
+          <span><?php echo $stringEventActions; ?></span>
         </a>
         <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Actions for events:</h6>
-            <a class="collapse-item" href="/events/new-event">New event</a>
+            <h6 class="collapse-header"><?php echo $stringEventActions; ?></h6>
+            <a class="collapse-item" href="/events/new-event"><?php echo $stringNewEvent; ?></a>
+            <a class="collapse-item" href="/events/event-singleticket"><?php echo $stringSingleTicket; ?></a>
           </div>
         </div>
       </li>
@@ -119,12 +123,14 @@ while($row4 = mysqli_fetch_assoc($sql4))
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
           <i class="fas fa-fw fa-file-invoice"></i>
-          <span>Reports</span>
+          <span><?php echo $stringReports; ?></span>
         </a>
         <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">All event reports:</h6>
-            <a class="collapse-item" href="/reports/optin">Opt In - per event</a>
+            <h6 class="collapse-header"><?php echo $stringReports; ?></h6>
+            <a class="collapse-item" href="/reports/optin"><?php echo $stringReportsOptin; ?></a>
+            <a class="collapse-item" href="/reports/ticketnotsent"><?php echo $stringReportsUnsent; ?></a>
+            <a class="collapse-item" href="/reports/singletickets">Single tickets - per event</a>
           </div>
         </div>
       </li>
@@ -149,6 +155,7 @@ while($row4 = mysqli_fetch_assoc($sql4))
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Loyalty:</h6>
       <a class="collapse-item" href="/loyalty/loyalty-settings">Account information</a>
+      <a class="collapse-item" href="/loyalty/loyalty-new-member">New Loyalty Member</a>
     </div>
   </div>
 </li>

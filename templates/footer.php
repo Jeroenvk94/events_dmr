@@ -160,7 +160,7 @@
     </div>
   </div>
 
-  <!-- Member Modal-->
+  <!-- Mailchimp Modal-->
   <div class="modal fade" id="campaignModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -171,13 +171,32 @@
           </button>
         </div>
         <div class="modal-body">
-          <a href="/controller/deletecampaign?id=<?php echo $mailchimp_id; ?>"><button class="btn btn-danger">Delete campaign</button></a>
-          <a href="/mailchimp/schedule-campaign?id=<?php echo $mailchimp_id; ?>"><button class="btn btn-info">Schedule campaign</button></a>
-          <a href="/controller/sendcampaign?id=<?php echo $mailchimp_id; ?>"><button class="btn btn-success">Send campaign</button></a>
-          <br><br>
-          <a href="/controller/unschedule?id=<?php echo $mailchimp_id; ?>"><button class="btn btn-warning">Unschedule campaign</button></a>
-          <a href="/controller/testmailing?id=<?php echo $mailchimp_id; ?>"><button class="btn btn-primary">Send test</button></a>
-          <a href="/controller/resendcampaign?id=<?php echo $mailchimp_id; ?>"><button class="btn btn-success">Resend campaign</button></a>
+                Test
+      </div>
+    </div>
+  </div>
+
+  <!-- Partner Modal -->
+  <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New dashboard user</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">x</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="/controller/partnercontroller">
+          <div class="form-group">
+            <input type="text" class="form-control form-control-user" name="name" placeholder="Partner Name">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-primary" value="Create">
+        </div>
+        </form>
       </div>
     </div>
   </div>

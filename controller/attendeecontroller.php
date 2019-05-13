@@ -1,6 +1,8 @@
 <?php
 
-include('../includes/config.php');
+$docroot = $_SERVER['DOCUMENT_ROOT'];
+include("$docroot/includes/CopernicaClient.php");
+include("$docroot/includes/config.php");
 
 // Get the settings
 $query3 = "SELECT * FROM `loyalty_settings`";
@@ -12,12 +14,14 @@ while($row = mysqli_fetch_assoc($sql3))
     $pass = $row['password'];
 }
 
+
 $eventId = $_POST['event'];
 $attendeeName = $_POST['name'];
 $attendeeCompany = $_POST['company'];
 $attendeeMail = $_POST['mail'];
 $attendeeOptIn = $_POST['optin'];
 $attendeePartner = $_POST['partner'];
+$attendeeType = $_POST['type'];
 
 $query99 = "SELECT * FROM `settings` WHERE `partner` = '$attendeePartner'";
 $sql99 = $con->query($query99);
@@ -25,9 +29,10 @@ while($row2 = mysqli_fetch_assoc($sql99))
 {
     $copernicaKey = $row2['key'];
     $copernicaDatabase = $row2['dbase'];
+    $copernicaCollection = $row2['collection'];
 }
 
-$query = "INSERT INTO `participants` (`name`,`mail`,`company`,`event_id`,`optin`) VALUES ('$attendeeName','$attendeeMail','$attendeeCompany','$eventId','$attendeeOptIn')"; 
+$query = "INSERT INTO `participants` (`name`,`mail`,`company`,`event_id`,`optin`,`partner`) VALUES ('$attendeeName','$attendeeMail','$attendeeCompany','$eventId','$attendeeOptIn','$attendeePartner')"; 
 $sql = mysqli_query($con,$query);
 if($sql)
 {
@@ -61,34 +66,62 @@ if($sql)
 
     $query4 = "UPDATE `participants` SET `walnut` = '$url' WHERE `event_id` = '$eventId' AND `mail` = '$attendeeMail'";
     $sql4 = mysqli_query($con,$query4);
-    if($sql4 && $partner == 'DataMatch')
+    if($sql4 && $attendeePartner == 'DataMatch')
     {
-        require_once('../includes/CopernicaClient.php');
-
-        $api = new CopernicaRestApi("$copernicaKey");
-
-        $fields = array(
-            'Voornaam' => $attendeeName,
-            'Walnut_Pass' => $url,
-            'Event_id' => $eventId,
-            'Send_confirmation' => '1',
-            "Email" => $attendeeMail
-        );
-
-        $data2 = array(
-            'fields' => $fields
-        );
-
-        $request = $api->post("database/$copernicaDatabase/profiles", $data2);
-
-        $query5 = "UPDATE `participants` SET `confirmation` = '1' WHERE `event_id` = '$eventId' AND `mail` = '$attendeeMail'";
-        $sql5 = $con->query($query5);
-        if($sql5)
+        if($attendeeType == "Single") 
         {
-            header('location: ../public/registration-success');
+
+            // $api = new CopernicaRestApi("$copernicaKey");
+
+            // $fields = array(
+            //     'Voornaam' => $attendeeName,
+            //     'Walnut_Pass' => $url,
+            //     // 'Event_id' => $eventId,
+            //     'Send_ticket' => '1',
+            //     "Email" => $attendeeMail
+            // );
+    
+            // $data2 = array(
+            //     'fields' => $fields
+            // );
+    
+            // $request = $api->post("database/$copernicaDatabase/profiles", $data2);
+    
+            $query5 = "UPDATE `participants` SET `ticket_sent` = '0',`copernica_id` = '$request',`type` = '$attendeeType' WHERE `event_id` = '$eventId' AND `mail` = '$attendeeMail'";
+            $sql5 = $con->query($query5);
+            if($sql5)
+            {
+                header('location: ../events/view-attendees?id='.$eventId.'');
+            }
+        }
+        else 
+        {
+            
+        // $api = new CopernicaRestApi("$copernicaKey");
+
+        // $fields = array(
+        //     'Voornaam' => $attendeeName,
+        //     'Walnut_Pass' => $url,
+        //     // 'Event_id' => $eventId,
+        //     'Send_confirmation' => '1',
+        //     "Email" => $attendeeMail
+        // );
+
+        // $data2 = array(
+        //     'fields' => $fields
+        // );
+
+        // $request = $api->post("database/$copernicaDatabase/profiles", $data2);
+
+            $query5 = "UPDATE `participants` SET `confirmation` = '1',`copernica_id` = '$request' WHERE `event_id` = '$eventId' AND `mail` = '$attendeeMail'";
+            $sql5 = $con->query($query5);
+            if($sql5)
+            {
+                header('location: ../public/registration-success');
+            }
         }
     }
-    elseif($sql4 && $partner != 'DataMatch')
+    elseif($sql4 && $attendeePartner != 'DataMatch')
     {
         header('location: ../public/registration-success');
     }

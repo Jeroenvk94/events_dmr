@@ -48,7 +48,7 @@ if(isset($_POST['submit']))
                                 <?php
                                     if(!$eventIdPost)
                                     {
-                                        $query = "SELECT * FROM `participants` WHERE `optin` = '1'";
+                                        $query = "SELECT * FROM `participants` WHERE `optin` = '1' AND `partner` = '$user_partner'";
                                         $sql = mysqli_query($con,$query);
                                         while($row = mysqli_fetch_assoc($sql))
                                         {

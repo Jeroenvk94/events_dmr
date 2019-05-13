@@ -9,7 +9,7 @@ $eventId = $_GET['id'];
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Attendee List</h1>
                 <a href="" target="_blank"><button class="btn btn-success btn-user btn-block" onclick="ToExcelReport();" id="btnExport">Export event list</button></a>
-                <a href="" target="_blank"><button class="btn btn-warning btn-user btn-block" onclick="ToExcelReport();" id="btnExport">Send Tickets</button></a>
+                <!-- <a href="/controller/sendtickets"><button class="btn btn-warning btn-user btn-block">Send Tickets</button></a> -->
             </div>
             
 

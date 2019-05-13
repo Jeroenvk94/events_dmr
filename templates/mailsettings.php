@@ -51,9 +51,6 @@ while($row = mysqli_fetch_assoc($sql))
                                     <input type="text" class="form-control form-control-user" name="database" placeholder="Enter Database Key" value="<?php echo $settings_database; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="collection" placeholder="Enter Collection Key" value="<?php echo $settings_collection; ?>">
-                                </div>
-                                <div class="form-group">
                                     <input type="submit" class="btn btn-primary btn-user btn-block" placeholder="Enter API Key" value="Change credentials">
                                 </div>
                             </div>

@@ -46,6 +46,8 @@ while($row = mysqli_fetch_assoc($sql))
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800"><?php echo $eventName; ?></h1>
+    <a href="/controller/eventdelete?id=<?php echo $eventId; ?>"><button class="btn btn-danger btn-user btn-block">Delete this event</button></a>
+    <a href="/events/edit-event?id=<?php echo $eventId; ?>"><button class="btn btn-success btn-user btn-block">Edit this event</button></a>
 </div>
 
 <div class="card o-hidden border-0 shadow-lg my-5">

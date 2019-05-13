@@ -6,6 +6,7 @@ while($row = mysqli_fetch_assoc($sql))
     $settings_user = $row['mail'];
     $settings_pass = $row['password'];
     $settings_akey = $row['token'];
+    $settings_send = $row['sendpass'];
 }
 ?>
 
