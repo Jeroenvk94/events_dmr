@@ -9,8 +9,8 @@ if(isset($_POST['submit']))
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Ticket not sent report</h1>
-                <a href=""><button class="btn btn-success btn-user btn-block" onclick="ToExcelReport();" id="btnExport">Export</button></a>
+                <h1 class="h3 mb-0 text-gray-800"><?php echo $stringReportsUnsent; ?></h1>
+                <a href=""><button class="btn btn-success btn-user btn-block" onclick="ToExcelReport();" id="btnExport"><?php echo $stringExport; ?></button></a>
             </div>
             <form method="post">
               <select name="list_id">
@@ -29,7 +29,7 @@ if(isset($_POST['submit']))
                       }
                   ?>
                 </select>
-                <input type="submit" value="Filter" class="btn btn-primary btn-user btn-block" style="width:100px;margin-top:10px;margin-bottom:10px" name="submit">
+                <input type="submit" value="<?php echo $stringFilter; ?>" class="btn btn-primary btn-user btn-block" style="width:100px;margin-top:10px;margin-bottom:10px" name="submit">
             </form>
           <!-- Content Row -->
 
@@ -39,9 +39,9 @@ if(isset($_POST['submit']))
                         <table class="table table-bordered" id="tb1" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email Address</th>
-                                    <th>Company</th>
+                                    <th><?php echo $stringName; ?></th>
+                                    <th><?php echo $stringAttendeeMail; ?></th>
+                                    <th><?php echo $stringCompany; ?></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,7 +100,7 @@ if(isset($_POST['submit']))
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-            <span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
+            <span><?php echo $stringUserInfo; ?></span>
             </div>
         </div>
       </footer>

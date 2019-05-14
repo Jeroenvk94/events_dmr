@@ -46,8 +46,8 @@ while($row = mysqli_fetch_assoc($sql))
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800"><?php echo $eventName; ?></h1>
-    <a href="/controller/eventdelete?id=<?php echo $eventId; ?>"><button class="btn btn-danger btn-user btn-block">Delete this event</button></a>
-    <a href="/events/edit-event?id=<?php echo $eventId; ?>"><button class="btn btn-success btn-user btn-block">Edit this event</button></a>
+    <a href="/controller/eventdelete?id=<?php echo $eventId; ?>"><button class="btn btn-danger btn-user btn-block"><?php echo $stringDelete; ?></button></a>
+    <a href="/events/edit-event?id=<?php echo $eventId; ?>"><button class="btn btn-success btn-user btn-block"><?php echo $stringEdit; ?></button></a>
 </div>
 
 <div class="card o-hidden border-0 shadow-lg my-5">
@@ -57,28 +57,28 @@ while($row = mysqli_fetch_assoc($sql))
             <div class="col-md-12">
                 <div class="p-5">
                     <div class="text-center">
-						<h4>Registration link</h4>
+						<h4><?php echo $stringEventRegistrationLink; ?></h4>
 						<p><a href="https://evenementen.datamatch.nl/public/register?id=<?php echo $eventId; ?>">https://evenementen.datamatch.nl/public/register?id=<?php echo $eventId; ?>&partner=<?php echo $user_partner; ?></a></p>
-                        <h1 class="h4 text-gray-900 mb-4">Event Location</h1>
+                        <h1 class="h4 text-gray-900 mb-4"><?php echo $stringLocation; ?></h1>
                         <table class="table">
                         <tr>
-                            <td>Venue</td>
+                            <td><?php echo $stringEventVenue; ?></td>
                                 <td><?php echo $eventVenue; ?></td>
                             </tr>
                             <tr>
-                                <td>Address</td>
+                                <td><?php echo $stringEventAddress; ?></td>
                                 <td><?php echo $eventAddress; ?></td>
                             </tr>
                             <tr>
-                                <td>City</td>
+                                <td><?php echo $stringEventCity; ?></td>
                                 <td><?php echo $eventCity; ?></td>
                             </tr>
                             <tr>
-                                <td>ZIP Code</td>
+                                <td><?php echo $stringEventZip; ?></td>
                                 <td><?php echo $eventZipCode; ?></td>
                             </tr>
                             <tr>
-                                <td>Event Date & Time</td>
+                                <td><?php echo $stringEventDateTime; ?></td>
                                 <td><?php echo $datetime; ?></td>
                             </tr>
                         </table>
@@ -95,25 +95,25 @@ while($row = mysqli_fetch_assoc($sql))
             <div class="col-md-6">
                 <div class="p-5">
                     <div>
-                        <h1 class="h4 text-gray-900 mb-4">Event Statistics</h1>
-                        <h4 class="h5 text-gray-900 mb-4">Attendance</h4>
-                        <p>Total attendance : <?php echo $eventAttendance; ?></p>
+                        <h1 class="h4 text-gray-900 mb-4"><?php echo $stringEventStatistics; ?></h1>
+                        <h4 class="h5 text-gray-900 mb-4"><?php echo $stringEventAttendanceTitle; ?></h4>
+                        <p><?php echo $stringTotalAttendance; ?> : <?php echo $eventAttendance; ?></p>
                         <div class="progress mb-4">
                             <div class="progress-bar" role="progressbar" style="width:<?php echo "$attendancePercentage%"; ?>" aria-valuenow="<?php echo $attendancePercentage;?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <p><?php echo number_format($attendancePercentage, 2); ?> %</p>
-                        <a href="/events/view-attendees?id=<?php echo $eventId; ?>"><button class="btn btn-primary btn-user btn-block">View attendees</button></a>
+                        <a href="/events/view-attendees?id=<?php echo $eventId; ?>"><button class="btn btn-primary btn-user btn-block"><?php echo $stringView; ?></button></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="p-5">
                     <div>
-                        <h1 class="h4 text-gray-900 mb-4">Recent Attendees</h1>
+                        <h1 class="h4 text-gray-900 mb-4"><?php echo $stringEventsLatestAttendees; ?></h1>
                         <table class="table table-bordered">
                             <thead>
-                                <th>Name</th>
-                                <th>Email Address</th>
+                                <th><?php echo $stringAttendeeName; ?></th>
+                                <th><?php echo $stringAttendeeMail; ?></th>
                             </thead>
                             <tbody>
                                 <?php 
@@ -152,7 +152,7 @@ while($row = mysqli_fetch_assoc($sql))
 <footer class="sticky-footer bg-white">
 <div class="container my-auto">
 <div class="copyright text-center my-auto">
-<span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
+<span><?php echo $stringUserInfo; ?></span>
 </div>
 </div>
 </footer>

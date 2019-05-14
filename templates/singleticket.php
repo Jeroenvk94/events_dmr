@@ -3,7 +3,7 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Send a single ticket</h1>
+    <h1 class="h3 mb-0 text-gray-800"><?php echo $stringSendSingleTicket; ?></h1>
 </div>
 
 <div class="card o-hidden border-0 shadow-lg my-5">
@@ -17,13 +17,13 @@
                 <div class="p-5">
                     <div class="text-center">
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-user" name="mail" placeholder="Attendee email address" required>
+                            <input type="email" class="form-control form-control-user" name="mail" placeholder="<?php echo $stringMail; ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="name" placeholder="Attendee name" required>
+                            <input type="text" class="form-control form-control-user" name="name" placeholder="<?php echo $stringName; ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="company" placeholder="Attendee company" required>
+                            <input type="text" class="form-control form-control-user" name="company" placeholder="<?php echo $stringCompany; ?>" required>
                         </div>
                         <div class="form-group">
                         <select name="event">
@@ -44,7 +44,7 @@
                         </select>
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-user btn-block" value="Create ticket">
+                            <input type="submit" class="btn btn-primary btn-user btn-block" value="<?php echo $stringCreate; ?>">
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
 <footer class="sticky-footer bg-white">
 <div class="container my-auto">
 <div class="copyright text-center my-auto">
-<span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
+<span><?php echo $stringUserInfo; ?></span>
 </div>
 </div>
 </footer>

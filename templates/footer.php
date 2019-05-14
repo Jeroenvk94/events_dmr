@@ -8,15 +8,15 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+          <h5 class="modal-title" id="exampleModalLabel"><?php echo $stringLogoutTitle; ?></h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Click logout to end your session.</div>
+        <div class="modal-body"><?php echo $stringLogoutBody; ?></div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="/logout">Logout</a>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo $stringCancel; ?></button>
+          <a class="btn btn-primary" href="/logout"><?php echo $stringLogout; ?></a>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New dashboard user</h5>
+          <h5 class="modal-title" id="exampleModalLabel"><?php echo $stringNewUser; ?></h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">x</span>
           </button>
@@ -35,19 +35,19 @@
         <div class="modal-body">
           <form method="post" action="/controller/usercontroller">
           <div class="form-group">
-            <input type="email" class="form-control form-control-user" name="mail" placeholder="Email address">
+            <input type="email" class="form-control form-control-user" name="mail" placeholder="<?php echo $stringEmail; ?>">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control form-control-user" name="pass" placeholder="Create a password">
+            <input type="password" class="form-control form-control-user" name="pass" placeholder="<?php echo $stringPassword; ?>">
           </div>          
           <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="firstname" placeholder="First name">
+              <input type="text" class="form-control form-control-user" name="firstname" placeholder="<?php echo $stringFirstname; ?>">
           </div>
           <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="lastname" placeholder="Last name">
+              <input type="text" class="form-control form-control-user" name="lastname" placeholder="<?php echo $stringLastname; ?>">
           </div>
           <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="company" placeholder="Company name">
+              <input type="text" class="form-control form-control-user" name="company" placeholder="<?php echo $stringCompany; ?>">
           </div>
           <div class="form-group">
             <select name="partner">
@@ -67,17 +67,17 @@
             </select>
           </div>
               <input type="checkbox" name="admin" id="admin" value="1">
-              <label for="admin">Is admin?</label><br/>
+              <label for="admin"><?php echo $stringAdminCheckbox; ?></label><br/>
               <input type="checkbox" name="loyalty" id="loyalty" value="1">
-              <label for="loyalty">Access to loyalty</label><br/>
+              <label for="loyalty"><?php echo $stringLoyaltyCheckbox; ?></label><br/>
               <input type="checkbox" name="mailchimp" id="mailchimp" value="1">
-              <label for="mailchimp">Access to emailings</label><br/>
+              <label for="mailchimp"><?php echo $stringEmailCheckbox; ?></label><br/>
               <input type="checkbox" name="events" id="events" value="1">
-              <label for="events">Access to events</label>
+              <label for="events"><?php echo $stringEventCheckbox; ?></label>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <input type="submit" class="btn btn-primary" value="Create">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo $stringCancel; ?></button>
+          <input type="submit" class="btn btn-primary" value="<?php echo $stringCreate; ?>">
         </div>
         </form>
       </div>
@@ -89,7 +89,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New dashboard user</h5>
+          <h5 class="modal-title" id="exampleModalLabel"><?php echo $stringNewPartner; ?></h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">x</span>
           </button>
@@ -97,109 +97,18 @@
         <div class="modal-body">
           <form method="post" action="/controller/partnercontroller">
           <div class="form-group">
-            <input type="text" class="form-control form-control-user" name="name" placeholder="Partner Name">
+            <input type="text" class="form-control form-control-user" name="name" placeholder="<?php echo $stringPartnerName; ?>">
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <input type="submit" class="btn btn-primary" value="Create">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo $stringCancel; ?></button>
+          <input type="submit" class="btn btn-primary" value="<?php echo $stringCreate; ?>">
         </div>
         </form>
       </div>
     </div>
   </div>
 
-   <!-- Member Modal-->
-   <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Member information</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">x</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form method="post" action="/controller/usercontroller">
-          <div class="form-group">
-            <input type="email" class="form-control form-control-user" name="mail" placeholder="Email address">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control form-control-user" name="pass" placeholder="Create a password">
-          </div>          
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="firstname" placeholder="First name">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="lastname" placeholder="Last name">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="company" placeholder="Company name">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="address" placeholder="Address">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="city" placeholder="City">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="zip" placeholder="ZIP code">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="country" placeholder="Country">
-          </div>
-              <input type="checkbox" name="admin" id="admin" value="1">
-              <label for="admin">Is admin?</label>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <input type="submit" class="btn btn-primary" value="Create">
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mailchimp Modal-->
-  <div class="modal fade" id="campaignModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Campaign actions</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">x</span>
-          </button>
-        </div>
-        <div class="modal-body">
-                Test
-      </div>
-    </div>
-  </div>
-
-  <!-- Partner Modal -->
-  <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New dashboard user</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">x</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form method="post" action="/controller/partnercontroller">
-          <div class="form-group">
-            <input type="text" class="form-control form-control-user" name="name" placeholder="Partner Name">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <input type="submit" class="btn btn-primary" value="Create">
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="/vendor/jquery/jquery.min.js"></script>

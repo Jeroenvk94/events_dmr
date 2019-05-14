@@ -1,5 +1,7 @@
 <?php
 
+$version = "2";
+
 $con = mysqli_connect("localhost","jeroen","Jeroen2018!","events");
 
 // Check connection

@@ -78,7 +78,7 @@ include("$docroot/includes/$user_lang.php");
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard-events">
-        <div class="sidebar-brand-text mx-3">Events<sup>v1</sup></div>
+        <div class="sidebar-brand-text mx-3">Events<sup>v<?php echo $version; ?></sup></div>
       </a>
 
       <?php if($user_events == '1') {?>
@@ -130,7 +130,7 @@ include("$docroot/includes/$user_lang.php");
             <h6 class="collapse-header"><?php echo $stringReports; ?></h6>
             <a class="collapse-item" href="/reports/optin"><?php echo $stringReportsOptin; ?></a>
             <a class="collapse-item" href="/reports/ticketnotsent"><?php echo $stringReportsUnsent; ?></a>
-            <a class="collapse-item" href="/reports/singletickets">Single tickets - per event</a>
+            <a class="collapse-item" href="/reports/singletickets"><?php echo $stringReportSingleTicket; ?></a>
           </div>
         </div>
       </li>
@@ -143,19 +143,19 @@ include("$docroot/includes/$user_lang.php");
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Loyalty
+<?php echo $stringLoyalty; ?>
 </div>
 
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
     <i class="fas fa-fw fa-cog"></i>
-    <span>Settings</span>
+    <span><?php echo $stringLoyaltySettings; ?></span>
   </a>
   <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Loyalty:</h6>
-      <a class="collapse-item" href="/loyalty/loyalty-settings">Account information</a>
-      <a class="collapse-item" href="/loyalty/loyalty-new-member">New Loyalty Member</a>
+      <a class="collapse-item" href="/loyalty/loyalty-settings"><?php echo $stringLoyaltySettingsCredentials; ?></a>
+      <a class="collapse-item" href="/loyalty/loyalty-new-member"><?php echo $stringLoyaltySettingsNewMember; ?></a>
     </div>
   </div>
 </li>
@@ -168,18 +168,18 @@ include("$docroot/includes/$user_lang.php");
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        E-mails
+      <?php echo $stringEmail; ?>
       </div>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Settings</span>
+          <span><?php echo $stringEmailSettings; ?></span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Copernica:</h6>
-            <a class="collapse-item" href="/mail/mail-settings">Account information</a>
+            <a class="collapse-item" href="/mail/mail-settings"><?php echo $stringEmailSettingsCredentials; ?></a>
           </div>
         </div>
       </li>
@@ -193,20 +193,20 @@ include("$docroot/includes/$user_lang.php");
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Management
+      <?php echo $stringManager; ?>
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Settings</span>
+          <span><?php echo $stringManagerSettings; ?></span>
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Manager:</h6>
-            <a class="collapse-item" href="/manager/users">User Information</a>
-            <a class="collapse-item" href="/manager/partners">Partners</a>
+            <h6 class="collapse-header"><?php echo $stringManagerSettings; ?></h6>
+            <a class="collapse-item" href="/manager/users"><?php echo $stringManagerSettingsUser; ?></a>
+            <a class="collapse-item" href="/manager/partners"><?php echo $stringManagerSettingsPartners; ?></a>
           </div>
         </div>
       </li>
@@ -246,16 +246,16 @@ include("$docroot/includes/$user_lang.php");
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="/user/profile">
             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            Profile
+            <?php echo $stringUserProfile; ?>
           </a>
           <a class="dropdown-item" href="/user/settings">
             <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-            Settings
+            <?php echo $stringUserSettings; ?>
           </a>
           <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            Logout
+            <?php echo $stringLogout; ?>
           </a>
         </div>
       </li>

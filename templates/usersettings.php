@@ -20,19 +20,37 @@ if(isset($_POST['submit']))
 
             if($sql)
             {
-                $error = '<h4 class="text-success">Password successfully changed</h4>';
+                $error = '<h4 class="text-success">'.$stringPasswordChangeSuccess.'</h4>';
             }
 
         }
         else
         {
-            $error = '<h4 class="text-danger">New passwords do not match</h4>';
+            $error = '<h4 class="text-danger">'.$stringPasswordChangeFail.'</h4>';
         }
 
     }
     else 
     {
         $error = '<h4 class="text-danger">Old password does not match our records</h4>';
+    }
+}
+
+if(isset($_POST['change']))
+{
+
+    $language = $_POST['language'];
+
+    $query = "UPDATE `admins` SET `lang` = '$language' WHERE `id` = '$uid'";
+    $sql = mysqli_query($con,$query);
+    if($sql)
+    {
+        $error = '<h4 class="text-success">'.$stringChangeLanguageSuccess.'</h4>';
+    }
+
+    else 
+    {
+        $error = '<h4 class="text-danger">'.$stringChangeLanguageFail.'</h4>';
     }
 }
 
@@ -43,7 +61,7 @@ if(isset($_POST['submit']))
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">User settings</h1>
+    <h1 class="h3 mb-0 text-gray-800"><?php echo $stringUserSettings; ?></h1>
     <?php
         if($error != NULL)
         {
@@ -52,6 +70,7 @@ if(isset($_POST['submit']))
     ?>
 </div>
 
+
 <div class="card o-hidden border-0 shadow-lg my-5">
     <div class="card-body p-0">
     <!-- Nested Row within Card Body -->
@@ -59,18 +78,46 @@ if(isset($_POST['submit']))
             <div class="col-md-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Your password</h1>
+                        <h1 class="h4 text-gray-900 mb-4"><?php echo $stringSystemLanguage; ?></h1>
                         <form class="user" method="post">
                             <div class="form-group">
-                                <input type="password" class="form-control form-control-user" name="old" placeholder="Old Password">
+                                <select name="language">
+                                    <option value="nl"><?php echo $stringDutch; ?></option>
+                                    <option value="en"><?php echo $stringEnglish; ?></option>
+                                    <option value="fr"><?php echo $stringFrench; ?></option>
+                                    <option value="du"><?php echo $stringGerman; ?></option>
+                                </select>
+                            </div>
+                            <input type="submit" name="change" value="<?php echo $stringChangeLanguage; ?>" class="btn btn-primary btn-user btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+    <!-- Nested Row within Card Body -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h1 class="h4 text-gray-900 mb-4"><?php echo $stringChangePassword; ?></h1>
+                        <form class="user" method="post">
+                            <div class="form-group">
+                                <input type="password" class="form-control form-control-user" name="old" placeholder="<?php echo $stringOldPassword; ?>">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control form-control-user" name="new" placeholder="New Password">
+                                <input type="password" class="form-control form-control-user" name="new" placeholder="<?php echo $stringNewPassword; ?>">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control form-control-user" name="confirm" placeholder="Confirm Password">
+                                <input type="password" class="form-control form-control-user" name="confirm" placeholder="<?php echo $stringNewPasswordConfirm; ?>">
                             </div>
-                            <input type="submit" name="submit" value="Change Password" class="btn btn-primary btn-user btn-block">
+                            <input type="submit" name="submit" value="<?php echo $stringChangePassword; ?>" class="btn btn-primary btn-user btn-block">
                         </form>
                     </div>
                 </div>
@@ -89,7 +136,7 @@ if(isset($_POST['submit']))
 <footer class="sticky-footer bg-white">
 <div class="container my-auto">
 <div class="copyright text-center my-auto">
-<span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
+<span><?php echo $stringUserInfo; ?></span>
 </div>
 </div>
 </footer>

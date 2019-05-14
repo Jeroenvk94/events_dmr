@@ -9,9 +9,9 @@ if(isset($_POST['submit']))
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Event List</h1>
-                <a href="/events/new-event"><button class="btn btn-primary btn-user btn-block">Create new event</button></a>
-                <a href=""><button class="btn btn-success btn-user btn-block" onclick="ToExcelReport();" id="btnExport">Export event list</button></a>
+                <h1 class="h3 mb-0 text-gray-800"><?php echo $stringEventList; ?></h1>
+                <a href="/events/new-event"><button class="btn btn-primary btn-user btn-block"><?php echo $stringNewEvent; ?></button></a>
+                <a href=""><button class="btn btn-success btn-user btn-block" onclick="ToExcelReport();" id="btnExport"><?php echo $stringExport; ?></button></a>
             </div>
 
             <div class="card shadow mb-4">
@@ -20,10 +20,10 @@ if(isset($_POST['submit']))
                         <table class="table table-bordered" id="tb1" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Event name</th>
-                                    <th>Event date</th>
-                                    <th>Event city</th>
-                                    <th>Event attendance</th>
+                                    <th><?php echo $stringEventName; ?></th>
+                                    <th><?php echo $stringEventDate; ?></th>
+                                    <th><?php echo $stringEventCity; ?></th>
+                                    <th><?php echo $stringEventAttendance; ?></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,12 +67,12 @@ if(isset($_POST['submit']))
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
-            </div>
-        </div>
-      </footer>
+<div class="container my-auto">
+<div class="copyright text-center my-auto">
+<span><?php echo $stringUserInfo; ?></span>
+</div>
+</div>
+</footer>
       <!-- End of Footer -->
 
     </div>

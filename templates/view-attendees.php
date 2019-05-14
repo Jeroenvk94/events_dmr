@@ -7,8 +7,8 @@ $eventId = $_GET['id'];
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Attendee List</h1>
-                <a href="" target="_blank"><button class="btn btn-success btn-user btn-block" onclick="ToExcelReport();" id="btnExport">Export event list</button></a>
+                <h1 class="h3 mb-0 text-gray-800"><?php echo $stringAttendeeList; ?></h1>
+                <a href="" target="_blank"><button class="btn btn-success btn-user btn-block" onclick="ToExcelReport();" id="btnExport"><?php echo $stringExport; ?></button></a>
                 <!-- <a href="/controller/sendtickets"><button class="btn btn-warning btn-user btn-block">Send Tickets</button></a> -->
             </div>
             
@@ -19,11 +19,11 @@ $eventId = $_GET['id'];
                         <table class="table table-bordered" id="tb1" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Company</th>
-                                    <th>Ticket URL</th>
-                                    <th>Event ID</th>
+                                    <th><?php echo $stringName; ?></th>
+                                    <th><?php echo $stringMail; ?></th>
+                                    <th><?php echo $stringCompany; ?></th>
+                                    <th><?php echo $stringTicketURL; ?></th>
+                                    <th><?php echo $stringEventId; ?></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,7 +65,7 @@ $eventId = $_GET['id'];
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-            <span>Copyright &copy; DataMatch Loyalty Marketing 2019</span>
+            <span><?php echo $stringUserInfo; ?></span>
             </div>
         </div>
       </footer>
